@@ -59,9 +59,29 @@ export default function Episode({ episode }: EpisodeProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await api.get('episodes', {
+    params: {
+      _limit: 2,
+      _sort: 'published_at',
+      _order: 'desc',
+    }
+  })
+
+  const paths = data.map(episode => {
+    return {
+      params: {
+        slug: episode.id,
+      }
+    }
+  })
+  
   return {
-    paths: [],
-    fallback: 'blocking'
+    paths,
+    //nos paths eu posso passar paginas para serem geradas na hora do build
+    fallback: 'blocking' 
+    //true, a pessoa é levada ao link e aí espera carregar (incremental static regeneration)
+    //false, aparece erro 404
+    //blocking, a pessoa só é levada quando os dados estiverem carregados (incremental static regeneration)
   }
 }
 

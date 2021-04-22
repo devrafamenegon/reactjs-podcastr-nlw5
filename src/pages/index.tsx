@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import { GetStaticProps } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+
 import { format, parseISO } from 'date-fns'; //parseISO pega uma string e converte para um Date do JS
 import ptBR from 'date-fns/locale/pt-BR';
+
 import { api } from '../services/api';
+import { PlayerContext } from '../contexts/PlayerContext';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
 import styles from './home.module.scss';
@@ -30,6 +34,8 @@ type HomeProps = {
 //as proximas pessoa que acessarem o site, e mudará apenas quando a api carregar novamente, assim repetindo o processo
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
+  const { play } = useContext(PlayerContext);
+
   return (
     <div className={styles.homepage}>
       <section className={styles.latestEpisodes}>
@@ -55,7 +61,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <span>{episode.durationAsString}</span>
                 </div>
 
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                   <img src="/play-green.svg" alt="Tocar episódio"/>
                 </button>
               </li>
