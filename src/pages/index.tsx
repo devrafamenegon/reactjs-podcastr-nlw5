@@ -11,7 +11,8 @@ import { api } from '../services/api';
 import { usePlayer } from '../contexts/PlayerContext';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
-import styles from './home.module.scss';
+//import styles from './index.module.scss';
+import { AllEpisodes, EpisodeDetails, HomepageComponent, LatestEpisodes } from './index_style';
 
 type Episode = {
   id: string;
@@ -40,13 +41,12 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
-    <div className={styles.homepage}>
+    <HomepageComponent>
       <Head>
         <title>Home | Podcastr</title>
       </Head>
-      <section className={styles.latestEpisodes}>
+      <LatestEpisodes>
         <h2>Últimos lançamentos</h2>
-
         <ul>
           {latestEpisodes.map((episode, index) =>{
             return (
@@ -58,14 +58,15 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   alt={episode.title}
                   objectFit="cover"
                 />
-                <div className={styles.episodeDetails}>
+
+                <EpisodeDetails>
                   <Link href={`/episodes/${episode.id}`}>
                     <a>{episode.title}</a>
                   </Link>
                   <p>{episode.members}</p>
                   <span>{episode.publishedAt}</span>
                   <span>{episode.durationAsString}</span>
-                </div>
+                </EpisodeDetails>
 
                 <button type="button" onClick={() => playList(episodeList, index)}>
                   <img src="/play-green.svg" alt="Tocar episódio"/>
@@ -74,9 +75,9 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
             )
           })}
         </ul>
-      </section>
+        </LatestEpisodes>
       
-      <section className={styles.allEpisodes}>
+      <AllEpisodes>
         <h2>Todos episódios</h2>
         <table cellSpacing={0}>
           <thead>
@@ -120,8 +121,8 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
             })}
           </tbody>
         </table>
-      </section>
-    </div>
+      </AllEpisodes>
+    </HomepageComponent>
   )
 }
 
