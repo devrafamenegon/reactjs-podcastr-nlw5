@@ -12,7 +12,7 @@ import { usePlayer } from '../contexts/PlayerContext';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
 //import styles from './index.module.scss';
-import { AllEpisodes, EpisodeDetails, HomepageComponent, LatestEpisodes } from './index_style';
+import { AllEpisodes, EpisodeDetails, HomepageComponent, LatestEpisodes } from '../styles/index';
 
 type Episode = {
   id: string;
