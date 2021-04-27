@@ -144,8 +144,6 @@ export function Player() {
             </button>
           )}
 
-
-            
           <button type="button" onClick={playPrevious} disabled={!episode || !hasPrevious}>
             <img src="/play-previous.svg" alt="Tocar anterior" />
           </button>
@@ -164,14 +162,28 @@ export function Player() {
           <button type="button" onClick={playNext} disabled={!episode || !hasNext}>
             <img src="/play-next.svg" alt="Tocar próxima" />
           </button>
-          <button 
-            type="button" 
-            onClick={toggleLoop} 
-            className={isLooping ? styles.isActive : ''} 
-            disabled={!episode}
-          >
-            <img src="/repeat.svg" alt="Repetir" />
-          </button>
+          
+          { isLooping ? (
+
+            <ButtonIsActive 
+              type="button" 
+              onClick={toggleLoop} 
+              disabled={!episode}
+            >
+              <img src="/repeat.svg" alt="Repetir" />
+            </ButtonIsActive>
+
+          ) : (
+            <button 
+              type="button" 
+              onClick={toggleLoop} 
+              disabled={!episode}
+            >
+              <img src="/repeat.svg" alt="Repetir" />
+            </button>
+          ) }
+
+          
         </Buttons>
       </footer>
     </PlayerContainer>

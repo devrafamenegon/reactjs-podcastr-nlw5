@@ -124,7 +124,7 @@ const Buttons = styled.div`
       filter: brightness(0.85);
     }
   }
-`
+`;
 
 const PlayButton = styled.button`
   width: 4rem;
@@ -140,10 +140,10 @@ const PlayButton = styled.button`
 const ButtonIsActive = styled.button`
   filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
 
-  &-hover {
+  &:hover {
     filter: brightness(0.6) invert(0.35) sepia(1) saturate(3)hue-rotate(100deg);
   }
-`
+`;
 
 export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, Buttons, PlayButton, ButtonIsActive }
 
