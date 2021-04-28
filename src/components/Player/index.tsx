@@ -6,7 +6,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 import styles from './styles.module.scss';
-import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, Buttons, PlayButton, ButtonIsActive } from './index_style'
+import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons } from './index_style'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 export function Player() {
@@ -124,68 +124,30 @@ export function Player() {
           />
         )}
 
-        <Buttons>
-          
-          { isShuffling ? (
-          <ButtonIsActive 
-            type="button" 
-            onClick={toggleShuffle} 
-            disabled={!episode || episodeList.length == 1}
-          >
+        <ButtonsContainer>
+          <Buttons isActive={isShuffling ? true : false} type="button" onClick={toggleShuffle} disabled={!episode || episodeList.length == 1}>
             <img src="/shuffle.svg" alt="Embaralhar" />
-          </ButtonIsActive>
-          ) : (
-            <button 
-              type="button" 
-              onClick={toggleShuffle}
-              disabled={!episode || episodeList.length == 1}
-            >
-              <img src="/shuffle.svg" alt="Embaralhar" />
-            </button>
-          )}
+          </Buttons>
 
-          <button type="button" onClick={playPrevious} disabled={!episode || !hasPrevious}>
+          <Buttons type="button" onClick={playPrevious} disabled={!episode || !hasPrevious}>
             <img src="/play-previous.svg" alt="Tocar anterior" />
-          </button>
-          <PlayButton 
-            type="button" 
-            disabled={!episode}
-            onClick={togglePlay}
-          > 
-            { isPlaying ? (
-              <img src="/pause.svg" alt="Tocar" />
-            ) : (
-              <img src="/play.svg" alt="Tocar" />
-            )}
+          </Buttons>
 
-          </PlayButton>
-          <button type="button" onClick={playNext} disabled={!episode || !hasNext}>
+          <Buttons isPlayButton={true} type="button" disabled={!episode} onClick={togglePlay}> 
+            { isPlaying ? (<img src="/pause.svg" alt="Tocar" />) : (<img src="/play.svg" alt="Tocar" />)}
+          </Buttons>
+
+          <Buttons type="button" onClick={playNext} disabled={!episode || !hasNext}>
             <img src="/play-next.svg" alt="Tocar próxima" />
-          </button>
+          </Buttons>
           
-          { isLooping ? (
+          <Buttons isActive={isLooping ? true : false} type="button" onClick={toggleLoop} disabled={!episode}>
+            <img src="/repeat.svg" alt="Repetir" />
+          </Buttons>
+        </ButtonsContainer>
 
-            <ButtonIsActive 
-              type="button" 
-              onClick={toggleLoop} 
-              disabled={!episode}
-            >
-              <img src="/repeat.svg" alt="Repetir" />
-            </ButtonIsActive>
-
-          ) : (
-            <button 
-              type="button" 
-              onClick={toggleLoop} 
-              disabled={!episode}
-            >
-              <img src="/repeat.svg" alt="Repetir" />
-            </button>
-          ) }
-
-          
-        </Buttons>
       </footer>
     </PlayerContainer>
   );
 }
+

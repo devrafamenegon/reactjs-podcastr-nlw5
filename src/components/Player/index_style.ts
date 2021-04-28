@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+
+interface Buttons {
+  isActive?: boolean;
+  isPlayButton?: boolean;
+}
 
 const PlayerContainer = styled.div`
   padding: 3rem 4rem;
@@ -101,49 +106,49 @@ const EmptySlider = styled(SliderStyle)`
   border-radius: 2px;
 `
 
-const Buttons = styled.div`
+const ButtonsContainer = styled.div<Buttons>`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2.5rem;
   gap: 1.5rem;
-
-  button {
-    background: transparent;
-    border: 0;
-    font-size: 0;
-
-    transition: filter 0.2s;
-
-    &:disabled {
-      cursor: default;
-      opacity: 0.5;
-    }
-
-    &:hover:not(:disabled) {
-      filter: brightness(0.85);
-    }
-  }
 `;
 
-const PlayButton = styled.button`
-  width: 4rem;
-  height: 4rem;
-  border-radius: 1rem;
-  background: ${props => props.theme.colors.primary400};
+const Buttons = styled.button<Buttons>`
+  background: transparent;
+  border: 0;
+  font-size: 0;
+
+  transition: filter 0.2s;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
 
   &:hover:not(:disabled) {
-    filter: brightness(0.95);
+    ${({ isActive }) => isActive ? 'filter: brightness(0.85);' : 'filter: brightness(0.85);'}
   }
+
+  ${({ isActive }) => isActive && css`
+    filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+
+    :hover {
+      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3)hue-rotate(100deg);
+    }
+  `}
+
+  ${({ isPlayButton }) => isPlayButton && css`
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: ${props => props.theme.colors.primary400};
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.95);
+    }
+  `}
 `;
 
-const ButtonIsActive = styled.button`
-  filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
-
-  &:hover {
-    filter: brightness(0.6) invert(0.35) sepia(1) saturate(3)hue-rotate(100deg);
-  }
-`;
-
-export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, Buttons, PlayButton, ButtonIsActive }
+export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons }
 
