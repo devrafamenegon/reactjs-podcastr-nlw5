@@ -10,6 +10,8 @@ import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 import styles from './episode.module.scss';
+import { EpisodeContainer, ThumbnailContainer, DescriptionContainer } from './episode';
+
 import { usePlayer } from '../../contexts/PlayerContext';
 
 type Episode = {
@@ -32,13 +34,13 @@ export default function Episode({ episode }: EpisodeProps) {
   const { play } = usePlayer();
 
   return (
-    <div className={styles.episode}>
+    <EpisodeContainer>
       
       <Head>
         <title>{episode.title} | Podcastr</title>
       </Head>
 
-      <div className={styles.thumbnailContainer}>
+      <ThumbnailContainer>
         <Link href="/">
           <button>
             <img src="/arrow-left.svg" alt="Voltar"/>
@@ -54,7 +56,7 @@ export default function Episode({ episode }: EpisodeProps) {
         <button type="button" onClick={() => play(episode)}>
           <img src="/play.svg" alt="Tocar episódio"/>
         </button>
-      </div>
+      </ThumbnailContainer>
 
       <header>
         <h1>{episode.title}</h1>
@@ -64,7 +66,7 @@ export default function Episode({ episode }: EpisodeProps) {
       </header>
 
       <div className={styles.description} dangerouslySetInnerHTML={{__html: episode.description }} />
-    </div>
+    </EpisodeContainer>
   )
 }
 
