@@ -27,7 +27,7 @@ const ThumbnailContainer = styled.div`
     &:first-child {
       left: 0;
       top: 50%;
-      background: var(--purple-500);
+      background: ${props => props.theme.colors.primary500};
 
       transform: translate(-50%, -50%);
     }
@@ -35,7 +35,7 @@ const ThumbnailContainer = styled.div`
     &:last-child {
       right: 0;
       top: 50%;
-      background: var(--green-500);
+      background: ${props => props.theme.colors.secondary};
 
       transform: translate(50%, -50%);
     }
@@ -48,7 +48,7 @@ const ThumbnailContainer = styled.div`
 
   header {
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--gray-100);
+  border-bottom: 1px solid ${props => props.theme.colors.text100};
 
   h1 {
     margin-top: 2rem;
@@ -82,7 +82,7 @@ const ThumbnailContainer = styled.div`
 const DescriptionContainer = styled.div`
   margin-top: 2rem;
   line-height: 1.675rem;
-  color: var(--gray-800);
+  color: ${props => props.theme.colors.text800};
 
   p {
     margin: 1.5rem 0;

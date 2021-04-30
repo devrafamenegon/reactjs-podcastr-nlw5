@@ -127,15 +127,11 @@ const Buttons = styled.button<Buttons>`
   }
 
   &:hover:not(:disabled) {
-    ${({ isActive }) => isActive ? 'filter: brightness(0.85);' : 'filter: brightness(0.85);'}
+    ${({ isActive }) => isActive ? 'filter: brightness(0.6) invert(0.35) sepia(1) saturate(3)hue-rotate(100deg);' : 'filter: brightness(0.85);'}
   }
 
   ${({ isActive }) => isActive && css`
     filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
-
-    :hover {
-      filter: brightness(0.6) invert(0.35) sepia(1) saturate(3)hue-rotate(100deg);
-    }
   `}
 
   ${({ isPlayButton }) => isPlayButton && css`

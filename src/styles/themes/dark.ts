@@ -3,8 +3,8 @@ export default {
 
   colors: {
     primary300: '#9f75ff',
-    primary400: '#9164fa',
-    primary500: '#8257e5',
+    primary400: '#8257e5',
+    primary500: '#9164fa',
     primary800: '#6f48c9',
 
     secondary: '#04d361',
