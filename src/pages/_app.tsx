@@ -12,7 +12,6 @@ import { Player } from '../components/Player';
 
 import GlobalStyle from '../styles/global';
 import { AppComponent } from '../styles/app';
-//import styles from '../styles/app.module.scss';
 import { PLayerContextProvider } from '../contexts/PlayerContext';
 
 function MyApp({ Component, pageProps }) {
