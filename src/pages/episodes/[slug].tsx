@@ -10,7 +10,7 @@ import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 import styles from './episode.module.scss';
-import { EpisodeContainer, ThumbnailContainer, DescriptionContainer } from './episode';
+import { EpisodeContainer, ThumbnailContainer, DescriptionContainer } from '../../styles/episode';
 
 import { usePlayer } from '../../contexts/PlayerContext';
 
@@ -65,7 +65,7 @@ export default function Episode({ episode }: EpisodeProps) {
         <span>{episode.durationAsString}</span>
       </header>
 
-      <div className={styles.description} dangerouslySetInnerHTML={{__html: episode.description }} />
+      <DescriptionContainer dangerouslySetInnerHTML={{__html: episode.description }} />
     </EpisodeContainer>
   )
 }

@@ -44,36 +44,36 @@ const ThumbnailContainer = styled.div`
       filter: brightness(0.9);
     }
   }
-  }
 
   header {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid ${props => props.theme.colors.text100};
+    padding-bottom: 1rem;
+    border-bottom: 1px solid ${props => props.theme.colors.text100};
 
-  h1 {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-  }
+    h1 {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
 
-  span {
-    display: inline-block;
-    font-size: 0.875rem;
+    span {
+      display: inline-block;
+      font-size: 0.875rem;
 
-    & + span {
-      margin-left: 1rem;
-      padding-left: 1rem;
-      position: relative;
+      & + span {
+        margin-left: 1rem;
+        padding-left: 1rem;
+        position: relative;
 
-      &::before {
-        content: "";
-        width: 4px;
-        height: 4px;
-        border-radius: 2px;
-        background: #ddd;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        &::before {
+          content: "";
+          width: 4px;
+          height: 4px;
+          border-radius: 2px;
+          background: #ddd;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
       }
     }
   }
