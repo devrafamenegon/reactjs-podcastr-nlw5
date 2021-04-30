@@ -1,4 +1,3 @@
-//import '../styles/global.scss'
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 //import usePersistedState from '../utils/usePersistedState';

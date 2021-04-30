@@ -5,6 +5,10 @@ interface Buttons {
   isPlayButton?: boolean;
 }
 
+interface Footer {
+  isEmpty?: boolean;
+}
+
 const PlayerContainer = styled.div`
   padding: 3rem 4rem;
   width: 26.5rem;
@@ -146,5 +150,11 @@ const Buttons = styled.button<Buttons>`
   `}
 `;
 
-export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons }
+const Footer = styled.footer<Footer>`
+  ${({ isEmpty }) => isEmpty && css`
+    opacity: 0.5;
+  `}
+`;
+
+export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer }
 

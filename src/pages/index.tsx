@@ -11,7 +11,6 @@ import { api } from '../services/api';
 import { usePlayer } from '../contexts/PlayerContext';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
-//import styles from './index.module.scss';
 import { AllEpisodes, EpisodeDetails, HomepageComponent, LatestEpisodes } from '../styles/index';
 
 type Episode = {
@@ -42,6 +41,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
   return (
     <HomepageComponent>
+      
       <Head>
         <title>Home | Podcastr</title>
       </Head>
@@ -76,7 +76,6 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           })}
         </ul>
         </LatestEpisodes>
-      
       <AllEpisodes>
         <h2>Todos episódios</h2>
         <table cellSpacing={0}>
@@ -122,6 +121,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           </tbody>
         </table>
       </AllEpisodes>
+    
     </HomepageComponent>
   )
 }

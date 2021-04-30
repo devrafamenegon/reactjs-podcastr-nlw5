@@ -5,8 +5,7 @@ import Slider from 'rc-slider';
 
 import 'rc-slider/assets/index.css';
 
-import styles from './styles.module.scss';
-import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons } from './index_style'
+import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer } from './index_style'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 export function Player() {
@@ -90,7 +89,7 @@ export function Player() {
         </EmptyPlayer>
       ) }
 
-      <footer className={!episode ? styles.empty : ''}>
+      <Footer isEmpty={!episode? true : false}>
         <Progress>
           <span>{convertDurationToTimeString(progress)}</span>
           <SliderStyle>
@@ -146,7 +145,7 @@ export function Player() {
           </Buttons>
         </ButtonsContainer>
 
-      </footer>
+      </Footer>
     </PlayerContainer>
   );
 }
