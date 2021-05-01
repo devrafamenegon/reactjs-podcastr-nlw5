@@ -11,7 +11,7 @@ interface Footer {
 
 const PlayerContainer = styled.div`
   padding: 3rem 4rem;
-  width: 26.5rem;
+  width: 28.5rem;
   height: 100vh;
 
   background: ${props => props.theme.colors.primary500};
@@ -40,17 +40,34 @@ const PlayerContainer = styled.div`
       opacity: 0.5;
     }
   }
-`
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 8rem;
+    padding: 1rem 2rem;
+
+    flex-direction: row;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    header {
+      display: none;
+    }
+  }
+`;
 
 const Empty = styled.div`
   opacity: 0.5;
-`
+`;
 
 const CurrentEpisode = styled.div`
   text-align: center;
 
   img {
     border-radius: 1.5rem;
+    width: 50px;
   }
 
   strong {
@@ -65,7 +82,7 @@ const CurrentEpisode = styled.div`
     opacity: 0.6;
     line-height: 1.5rem;
   }
-`
+`;
 
 const EmptyPlayer = styled.div`
   width: 100%;
@@ -84,7 +101,22 @@ const EmptyPlayer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+
+  @media (max-width: 768px) {
+    width: 8rem;
+    height: 8rem;
+    
+    padding: 1rem;
+    margin: 1rem;
+
+    strong {
+      font: 600 0.75rem Lexend, sans-serif;
+      line-height: 1rem;
+    }
+
+    display: none;
+  }
+`;
 
 const Progress = styled.div`
   display: flex;
@@ -97,18 +129,22 @@ const Progress = styled.div`
     width: 4rem;
     text-align: center;
   }
-`
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 const SliderStyle = styled(Progress)`
   flex: 1;
-`
+`;
 
 const EmptySlider = styled(SliderStyle)`
-  width: 100%;
+  width:100%;
   height: 4px;
   background: ${props => props.theme.colors.primary300};
   border-radius: 2px;
-`
+`;
 
 const ButtonsContainer = styled.div<Buttons>`
   display: flex;
@@ -116,6 +152,10 @@ const ButtonsContainer = styled.div<Buttons>`
   justify-content: center;
   margin-top: 2.5rem;
   gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
+  }
 `;
 
 const Buttons = styled.button<Buttons>`
@@ -154,6 +194,13 @@ const Footer = styled.footer<Footer>`
   ${({ isEmpty }) => isEmpty && css`
     opacity: 0.5;
   `}
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+  }
 `;
 
 export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer }

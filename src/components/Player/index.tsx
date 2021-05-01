@@ -5,7 +5,7 @@ import Slider from 'rc-slider';
 
 import 'rc-slider/assets/index.css';
 
-import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer } from './index_style'
+import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer } from './styles'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 export function Player() {
