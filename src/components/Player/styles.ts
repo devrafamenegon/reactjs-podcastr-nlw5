@@ -117,9 +117,7 @@ const CurrentEpisode = styled.div`
   }
 
   @media (max-width: 500px) {
-    strong {
-      display: none;
-    }
+    display: none;
   }
 `;
 
@@ -253,6 +251,10 @@ const Footer = styled.footer<Footer>`
     flex-direction: column;
     margin: 0 auto;
     justify-content: center;
+  }
+
+  @media (max-width: 500px) {
+    padding: 0rem;
   }
 `;
 
