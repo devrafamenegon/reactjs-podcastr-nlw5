@@ -42,7 +42,7 @@ export const HeaderContainer = styled.header`
     }
   }
 
-  @media (max-width: 350px) {
+  @media (max-width: 450px) {
     p {
       display: none;
     }

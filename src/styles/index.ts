@@ -37,7 +37,7 @@ const LatestEpisodes = styled.section`
     img {
       width: 6rem;
       min-width: 6rem;
-      height: 6rem;
+      height: 100%;
       border-radius: 1rem;
     }
   }
@@ -73,7 +73,7 @@ const LatestEpisodes = styled.section`
     }
 
     li {
-      width: 85vw;
+      width: 100vw;
     }
   }
 
@@ -147,8 +147,6 @@ const EpisodeDetails = styled.div`
   }
 
   @media (max-width: 600px) {
-    margin-left: 0;
-
     p {
       display: none;
     }
@@ -240,7 +238,7 @@ const AllEpisodesCard = styled.section`
   }
 
   li {
-    width: 85vw;
+    width: 100vw;
     background: ${props => props.theme.colors.backgroundSecondary};
     border-bottom: 1px solid ${props => props.theme.colors.backgroundDeep};
     padding: 1.25rem;
