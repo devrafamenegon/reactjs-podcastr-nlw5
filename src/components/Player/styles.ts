@@ -41,7 +41,7 @@ const PlayerContainer = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) {
     width: 100%;
     height: 8rem;
     padding: 1rem 2rem;
@@ -67,7 +67,6 @@ const CurrentEpisode = styled.div`
 
   img {
     border-radius: 1.5rem;
-    width: 50px;
   }
 
   strong {
@@ -81,6 +80,25 @@ const CurrentEpisode = styled.div`
     margin-top: 1rem;
     opacity: 0.6;
     line-height: 1.5rem;
+  }
+
+  @media (max-width: 1440px) {
+    display: flex;
+
+    img {
+      width: 100px;
+      min-width: 100px;
+      height: 100px;
+      min-height: 100px;
+    }
+    
+    strong {
+      text-align: start;
+    }
+
+    span{
+      display: none;
+    }
   }
 `;
 
@@ -102,9 +120,9 @@ const EmptyPlayer = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) {
     width: 8rem;
-    height: 8rem;
+    height: 6rem;
     
     padding: 1rem;
     margin: 1rem;
@@ -129,10 +147,6 @@ const Progress = styled.div`
     width: 4rem;
     text-align: center;
   }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 const SliderStyle = styled(Progress)`
@@ -144,6 +158,10 @@ const EmptySlider = styled(SliderStyle)`
   height: 4px;
   background: ${props => props.theme.colors.primary300};
   border-radius: 2px;
+
+  @media (max-width: 1440px) {
+    width: 50vw;
+  }
 `;
 
 const ButtonsContainer = styled.div<Buttons>`
@@ -153,7 +171,7 @@ const ButtonsContainer = styled.div<Buttons>`
   margin-top: 2.5rem;
   gap: 1.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) {
     margin-top: 0.5rem;
   }
 `;
@@ -195,7 +213,7 @@ const Footer = styled.footer<Footer>`
     opacity: 0.5;
   `}
 
-  @media (max-width: 768px) {
+  @media (max-width: 1440px) {
     display: flex;
     flex-direction: column;
     margin: 0 auto;

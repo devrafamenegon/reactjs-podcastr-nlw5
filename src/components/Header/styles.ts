@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   background: ${props => props.theme.colors.backgroundSecondary};
   height: 6.5rem;
+  
 
   display: flex;
   align-items: center;
@@ -21,5 +22,29 @@ export const HeaderContainer = styled.header`
     margin-left: auto;
     margin-right: 2rem;
     text-transform: capitalize;
+  }
+
+  @media (max-width: 720px) {
+    padding: 1rem 2rem;
+
+    span {
+      display: none;
+    }
+
+    p {
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 700px) {
+    img {
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 350px) {
+    p {
+      display: none;
+    }
   }
 `;
