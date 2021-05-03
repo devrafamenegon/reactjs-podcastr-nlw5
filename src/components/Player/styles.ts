@@ -44,7 +44,7 @@ const PlayerContainer = styled.div`
   @media (max-width: 1440px) {
     width: 100%;
     height: 8rem;
-    padding: 1rem 2rem;
+    padding: 0;
 
     flex-direction: row;
 
@@ -84,21 +84,53 @@ const CurrentEpisode = styled.div`
 
   @media (max-width: 1440px) {
     display: flex;
+    padding: 2rem;
+    align-items: center;
 
     img {
-      width: 100px;
-      min-width: 100px;
-      height: 100px;
-      min-height: 100px;
+      width: 100%;
+
+      border-radius: 20%;
     }
     
     strong {
+      display: flex;
+      margin-left: 25px;
+      margin-top: 0;
+
+      line-height: 1.25rem;
+
+      font: 600 1rem Lexend, sans-serif;
       text-align: start;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     span{
       display: none;
     }
+  }
+
+  @media (max-width: 700px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 500px) {
+    strong {
+      display: none;
+    }
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 64px;
+  min-width: 64px;
+  height: 64px;
+  min-height: 64px;
+
+  @media (max-width: 700px) {
+    display: none;
   }
 `;
 
@@ -125,13 +157,15 @@ const EmptyPlayer = styled.div`
     height: 6rem;
     
     padding: 1rem;
-    margin: 1rem;
+    margin-left: 5rem;
 
     strong {
       font: 600 0.75rem Lexend, sans-serif;
       line-height: 1rem;
     }
+  }
 
+  @media (max-width: 718px) {
     display: none;
   }
 `;
@@ -214,6 +248,7 @@ const Footer = styled.footer<Footer>`
   `}
 
   @media (max-width: 1440px) {
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -221,5 +256,5 @@ const Footer = styled.footer<Footer>`
   }
 `;
 
-export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer }
+export { PlayerContainer, Empty, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer, ImageContainer}
 

@@ -12,7 +12,6 @@ const HomepageComponent = styled.div`
 
   @media (max-width: 768px) {
     padding: 0 2rem;
-    height: calc(100vh + 10rem);
   }
 `;
 
@@ -73,7 +72,7 @@ const LatestEpisodes = styled.section`
     }
 
     li {
-      width: 100vw;
+      width: 80vw;
     }
   }
 
@@ -229,6 +228,7 @@ const AllEpisodesTable = styled.table`
 
 const AllEpisodesCard = styled.section`
   display: none;
+  margin-bottom: 9rem;
 
   ul {
     list-style: none;
@@ -238,7 +238,7 @@ const AllEpisodesCard = styled.section`
   }
 
   li {
-    width: 100vw;
+    width: 80vw;
     background: ${props => props.theme.colors.backgroundSecondary};
     border-bottom: 1px solid ${props => props.theme.colors.backgroundDeep};
     padding: 1.25rem;

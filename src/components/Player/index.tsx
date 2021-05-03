@@ -5,7 +5,7 @@ import Slider from 'rc-slider';
 
 import 'rc-slider/assets/index.css';
 
-import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer } from './styles'
+import { PlayerContainer, CurrentEpisode, EmptyPlayer, Progress, SliderStyle, EmptySlider, ButtonsContainer, Buttons, Footer, ImageContainer } from './styles'
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 export function Player() {
@@ -74,12 +74,14 @@ export function Player() {
 
       { episode ? (
         <CurrentEpisode>
-          <Image 
-            width={592} 
-            height={592} 
-            src={episode.thumbnail} 
-            objectFit="cover"
-          />
+          <ImageContainer>
+            <Image 
+              width={592} 
+              height={592} 
+              src={episode.thumbnail} 
+              objectFit="cover"
+            />
+          </ImageContainer>
           <strong>{episode.title}</strong>
           <span>{episode.members}</span>
         </CurrentEpisode>
