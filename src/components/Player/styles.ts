@@ -95,6 +95,7 @@ const CurrentEpisode = styled.div`
     
     strong {
       display: flex;
+      max-height: 5em;
       margin-left: 25px;
       margin-top: 0;
 
@@ -122,12 +123,14 @@ const CurrentEpisode = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 64px;
-  min-width: 64px;
-  height: 64px;
-  min-height: 64px;
+  @media (max-width: 1440px) {
+    width: 72px;
+    min-width: 72px;
+    height: 64px;
+    min-height: 64px;
+  }
 
-  @media (max-width: 700px) {
+  @media (max-width: 550px) {
     display: none;
   }
 `;
