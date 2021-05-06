@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { format, parseISO } from 'date-fns'; //parseISO pega uma string e converte para um Date do JS
 import ptBR from 'date-fns/locale/pt-BR';
 
-import { api } from '../services/api';
+import { api } from '../services/api'; //fakeapi
 import { usePlayer } from '../contexts/PlayerContext';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 
